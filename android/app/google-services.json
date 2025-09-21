@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "975651004709",
+    "project_id": "userflow-e9091",
+    "storage_bucket": "userflow-e9091.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975651004709:android:519bae3c726cdf00c23acc",
+        "android_client_info": {
+          "package_name": "com.example.userflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975651004709-f90le2uksc4onp8nstmn92um7sq23dpq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.userflow",
+            "certificate_hash": "ce080735ba71c32fcd6d4bbeb56cda9f7adb9916"
+          }
+        },
+        {
+          "client_id": "975651004709-fln78b18fnfosporfoq458kksk64arr9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIabih1e4MyxqACpEgfE5BTtM4D7BcMVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975651004709-fln78b18fnfosporfoq458kksk64arr9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "975651004709-u0aje0vfcfi7fc2n5jdeihtp0crrspv7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.userflow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
