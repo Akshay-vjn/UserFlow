@@ -135,7 +135,7 @@ class DatabaseHelper {
         });
       }
     } catch (e) {
-      print('Error saving Google auth: $e');
+      // Error saving Google auth: $e
       return 0;
     }
   }

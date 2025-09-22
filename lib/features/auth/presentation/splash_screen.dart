@@ -92,8 +92,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                 child: Opacity(
                   opacity: _logoOpacityAnimation.value,
                   child: Container(
-                    width: 200,
-                    height: 200,
+                    width: 150,
+                    height: 150,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: RadialGradient(
@@ -114,8 +114,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                       borderRadius: BorderRadius.circular(100),
                       child: Image.asset(
                         'assets/images/logo.jpg',
-                        width: 150,
-                        height: 150,
+                        width: 130,
+                        height: 130,
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -175,31 +175,6 @@ class ProfileScreen extends ConsumerWidget {
                           } : null,
                           enabled: notificationEnabled,
                         ),
-                        const Divider(height: 0),
-                        ListTile(
-                          leading: const Icon(Icons.token),
-                          title: const Text('FCM Token'),
-                          subtitle: fcmTokenAsync.when(
-                            data: (token) => Text(
-                              token != null ? 'Token: ${token.substring(0, 20)}...' : 'No token',
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                            loading: () => const Text('Loading...'),
-                            error: (_, __) => const Text('Error getting token'),
-                          ),
-                          onTap: () {
-                            fcmTokenAsync.whenData((token) {
-                              if (token != null) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text('FCM Token: $token'),
-                                    duration: const Duration(seconds: 5),
-                                  ),
-                                );
-                              }
-                            });
-                          },
-                        ),
                       ],
                     ),
                   ),

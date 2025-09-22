@@ -324,8 +324,8 @@ class UserDetailScreen extends ConsumerWidget {
                       icon: const Icon(Icons.delete),
                       label: Text(AppLocalizations.of(context)!.deleteButton),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
-                        foregroundColor: Colors.white,
+                        backgroundColor: theme.colorScheme.primary,
+                        foregroundColor: theme.colorScheme.onPrimary,
                       ),
                     ),
                   ),
