@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'auth_provider.dart';
-import 'package:userflow/core/services/connectivity_service.dart';
-import 'package:userflow/l10n/app_localizations.dart';
+import 'package:userflow/core/services/force_update_service.dart';
+import 'package:userflow/core/widgets/force_update_dialog.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -55,9 +54,40 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   void _navigateAfterDelay() async {
     await Future.delayed(const Duration(seconds: 3));
 
+    if (!mounted) return;
+
+    // Check for force update (minimum version check only)
+    final forceUpdateService = ref.read(forceUpdateServiceProvider);
+    final updateInfo = await forceUpdateService.checkForUpdate();
+
+    if (!mounted) return;
+
+    // Show force update dialog if required (blocks navigation)
+    if (updateInfo.status == UpdateStatus.forceUpdateRequired) {
+      await _showForceUpdateDialog(updateInfo, forceUpdateService);
+      return; // Don't proceed to login - user must update
+    }
+
+    // No update required, proceed to login
     if (mounted) {
       context.go('/login');
     }
+  }
+
+  Future<void> _showForceUpdateDialog(
+    UpdateInfo updateInfo,
+    ForceUpdateService service,
+  ) async {
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => ForceUpdateDialog(
+        updateInfo: updateInfo,
+        onUpdate: () async {
+          await service.openStore(updateInfo.storeUrl);
+        },
+      ),
+    );
   }
 
   @override

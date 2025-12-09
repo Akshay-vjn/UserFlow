@@ -5,9 +5,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:userflow/firebase_options.dart';
-import 'package:userflow/features/auth/presentation/auth_provider.dart';
 import 'package:userflow/core/services/notification_service.dart';
 import 'package:userflow/core/services/notification_provider.dart';
+import 'package:userflow/core/services/remote_config_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +22,15 @@ void main() async {
   
   await NotificationService().initialize();
   
+  // Initialize Remote Config
+  final remoteConfigService = RemoteConfigService();
+  await remoteConfigService.initialize();
+  
   runApp(
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(prefs),
+        remoteConfigServiceProvider.overrideWithValue(remoteConfigService),
       ],
       child: const App(),
     ),
