@@ -132,7 +132,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                       const SizedBox(height: 8),
                       
                       Text(
-                        'Welcome back! Sign in to continue',
+                        'Welcome back! Sign in to continue..',
                         style: theme.textTheme.bodyLarge?.copyWith(
                           color: theme.colorScheme.onSurface.withOpacity(0.7),
                           fontWeight: FontWeight.w400,
